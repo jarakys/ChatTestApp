@@ -8,8 +8,9 @@
 import Foundation
 import Combine
 
-protocol ChatService {
+protocol ChatService<T> {
     associatedtype T
-    var messageSender: CurrentValueSubject<T, Never> { get set }
-    func sendText(text: String, chatId: String) throws
+    var messageSender: PassthroughSubject<T, Never> { get set }
+    func send(message: T, chatId: String) async throws
+    func fetchItems(paginator: Paginator) async throws -> [T]
 }

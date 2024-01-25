@@ -8,5 +8,4 @@
 import Foundation
 
 protocol Messageable {
-    var status: MessageStatus { get }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum ChatError {
+enum ChatError: Error {
     case sendError
+    case unknownError(error: Error)
 }
